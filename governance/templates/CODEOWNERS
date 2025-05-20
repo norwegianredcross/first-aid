@@ -1,0 +1,39 @@
+# CODEOWNERS
+#
+# This file defines who is automatically assigned to review pull requests
+# based on which files are changed.
+#
+# Format: file_pattern @user_or_team
+# - file_pattern uses the same syntax as .gitignore
+# - @user_or_team can be a GitHub username or a team name
+# - The last matching pattern takes precedence
+
+# Default owners for everything
+*                   @norwegianredcross/repository-admins
+
+# Backend code
+/src/api/           @norwegianredcross/backend-team
+/src/services/      @norwegianredcross/backend-team
+
+# Frontend code
+/src/frontend/      @norwegianredcross/frontend-team
+/src/ui/            @norwegianredcross/frontend-team
+*.css               @norwegianredcross/frontend-team
+*.html              @norwegianredcross/frontend-team
+
+# Infrastructure and configuration
+/.github/           @norwegianredcross/repository-admins
+/terraform/         @norwegianredcross/infrastructure-team
+/kubernetes/        @norwegianredcross/infrastructure-team
+Dockerfile          @norwegianredcross/infrastructure-team
+
+# Documentation
+/docs/              @norwegianredcross/documentation-team
+README.md           @norwegianredcross/documentation-team
+
+# INSTRUCTIONS:
+# 1. Copy this file to your repository's root directory or .github directory
+# 2. Rename to CODEOWNERS (no file extension)
+# 3. Replace team names with actual teams in your organization
+# 4. Modify file patterns to match your repository structure
+# 5. Remove these instructions when done

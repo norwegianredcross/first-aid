@@ -1,5 +1,11 @@
 # GitHub User Provisioning
 
+## Version Information
+| Version | Date | Description |
+|---------|------|-------------|
+| 1.0 | 2023-05-20 | Initial documentation |
+| 1.1 | 2023-05-20 | Added links to role and team type definitions |
+
 This document explains how users are provisioned to the Norwegian Red Cross GitHub organization, with a focus on the integration between HR systems, Okta, and GitHub.
 
 ## Overview
@@ -8,7 +14,7 @@ User provisioning for our GitHub organization follows an automated flow that ens
 
 ```mermaid
 flowchart LR
-    classDef primary fill:#003a8c,stroke:#0066cc,stroke-width:2px,color:#ffffff
+    classDef primary fill:#8a2be2,stroke:#4b0082,stroke-width:2px,color:#ffffff
     
     HR[HR System] --> Okta[Okta Identity]
     Okta --> GitHub[GitHub Organization]
@@ -23,25 +29,25 @@ flowchart LR
 
 Our GitHub organization uses four types of teams:
 
-* **Division Teams** (Level 1)
+* **[Division Teams](./01-github-governance-roles.md#division-team)** (Level 1)
   - Top-level teams based on organizational divisions
   - Example: "Hovedkontor Team", "Oslo Røde Kors Team"
   - Includes employees who need read access to division repositories
   - Has access to all repositories within their division
 
-* **Department Teams** (Level 2)
+* **[Department Teams](./01-github-governance-roles.md#department-team)** (Level 2)
   - Nested under division teams
   - Example: "HK IT Department Team", "Oslo IT Department Team"
   - Includes employees who need read access to department repositories
   - Has access to repositories relevant to their department
 
-* **Role-based Teams**
+* **[Role-based Teams](./01-github-governance-roles.md#role-based-team)**
   - Cross-organizational teams based on job roles
   - Example: "Developers Team", "Project Managers Team"
   - Manually managed teams that include members across different divisions/departments
   - Has access to repositories based on their role requirements
 
-* **Project Teams**
+* **[Project Teams](./01-github-governance-roles.md#project-team)**
   - Manually managed teams for specific projects
   - Example: "HK-Donor-Management-Team"
   - Has access to specific repositories related to their project
@@ -101,22 +107,22 @@ User accounts and team memberships in GitHub are managed through SCIM (System fo
 
 ## 2-Level Team Structure Based on HR Data
 
-GitHub teams for internal users are structured to align with our 2-level HR system hierarchy:
+GitHub teams for [Internal Users](./01-github-governance-roles.md#internal-user) are structured to align with our 2-level HR system hierarchy:
 
 ```mermaid
 flowchart TD
-    classDef division fill:#d4380d,stroke:#ff4d4f,stroke-width:2px,color:#ffffff
-    classDef department fill:#389e0d,stroke:#52c41a,stroke-width:2px,color:#ffffff
+    classDef division fill:#8a2be2,stroke:#4b0082,stroke-width:2px,color:#ffffff
+    classDef department fill:#1e90ff,stroke:#0000cd,stroke-width:2px,color:#ffffff
     
     D1[Hovedkontor Team]
-    D1 --> DEPT1[HK IT Department Team]
-    D1 --> DEPT2[HK Inntekt Department Team]
+    D1 -->|Contains| DEPT1[HK IT Department Team]
+    D1 -->|Contains| DEPT2[HK Inntekt Department Team]
     
     D2[Oslo Røde Kors Team]
-    D2 --> DEPT3[Oslo IT Department Team]
+    D2 -->|Contains| DEPT3[Oslo IT Department Team]
     
     D3[Hordaland Røde Kors Team]
-    D3 --> DEPT4[Hordaland IT Department Team]
+    D3 -->|Contains| DEPT4[Hordaland IT Department Team]
     
     class D1,D2,D3 division
     class DEPT1,DEPT2,DEPT3,DEPT4 department
@@ -126,7 +132,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    classDef role fill:#531dab,stroke:#722ed1,stroke-width:2px,color:#ffffff
+    classDef role fill:#2e8b57,stroke:#006400,stroke-width:2px,color:#ffffff
     
     ROLE1[Developers Team]
     ROLE2[Project Managers Team]
@@ -137,23 +143,23 @@ flowchart TD
 
 **Figure 2b: Role-Based Teams**
 
-1. **Division-based Teams (Level 1)**:
+1. **[Division Team](./01-github-governance-roles.md#division-team) (Level 1)**:
    - Mapped from organizational divisions in HR
-   - Examples: "Hovedkontor", "Oslo Røde Kors", "Hordaland Røde Kors"
-   - All employees in a division are automatically added to corresponding team
+   - Examples: "Hovedkontor Team", "Oslo Røde Kors Team", "Hordaland Røde Kors Team"
+   - All employees in a division are automatically added
 
-2. **Department-based Teams (Level 2)**:
+2. **[Department Team](./01-github-governance-roles.md#department-team) (Level 2)**:
    - Mapped from departmental structure in HR
-   - Examples: "HK IT", "HK Inntekt", "Oslo IT", "Hordaland IT"
+   - Examples: "HK IT Department Team", "HK Inntekt Department Team", "Oslo IT Department Team"
    - Nested under their respective division teams
 
-3. **Role-based Teams (Cross-organizational)**:
+3. **[Role-based Team](./01-github-governance-roles.md#role-based-team) (Cross-organizational)**:
    - Mapped from job roles or responsibilities in HR
-   - Examples: "Developers", "Project Managers", "UX Designers"
+   - Examples: "Developers Team", "Project Managers Team", "UX Designers Team"
    - Used for cross-divisional functional grouping
 
-4. **Project Teams (Manually managed)**:
-   - Require manual management by Repository Admins or Team Maintainers
+4. **[Project Team](./01-github-governance-roles.md#project-team) (Manually managed)**:
+   - Require manual management by [Repository Admins](./01-github-governance-roles.md#repository-admin) or [Team Maintainers](./01-github-governance-roles.md#team-maintainer)
    - Membership can be a mix of automated assignments and manual additions
    - Used for repository-specific contribution access
 
@@ -166,29 +172,29 @@ User attributes flow from HR to GitHub via Okta following this mapping pattern:
 | Employee Number | employeeNumber | N/A (internal reference) |
 | Full Name | displayName | Display Name |
 | Email | email | Primary Email |
-| Division | division | Division Team Membership (Level 1) |
-| Department | department | Department Team Membership (Level 2) |
+| Division | division | [Division Team](./01-github-governance-roles.md#division-team) Membership (Level 1) |
+| Department | department | [Department Team](./01-github-governance-roles.md#department-team) Membership (Level 2) |
 | Job Title | title | Profile Information |
-| Job Role | role | Role-based Team Membership |
+| Job Role | role | [Role-based Team](./01-github-governance-roles.md#role-based-team) Membership |
 | Manager | manager | N/A (for future use) |
 
 ## Team Naming Convention
 
 To maintain consistency with our 2-level structure, teams will be named according to these patterns:
 
-1. **Division Teams (Level 1)**:
+1. **[Division Teams](./01-github-governance-roles.md#division-team) (Level 1)**:
    - Format: "[Division Name] Team"
    - Examples: "Hovedkontor Team", "Oslo Røde Kors Team"
 
-2. **Department Teams (Level 2)**:
+2. **[Department Teams](./01-github-governance-roles.md#department-team) (Level 2)**:
    - Format: "[Division Abbreviation] [Department Name] Team"
    - Examples: "HK IT Department Team", "Oslo IT Department Team"
 
-3. **Role-based Teams**:
+3. **[Role-based Teams](./01-github-governance-roles.md#role-based-team)**:
    - Format: "[Role Name] Team"
    - Examples: "Developers Team", "Project Managers Team"
 
-4. **Project Teams**:
+4. **[Project Teams](./01-github-governance-roles.md#project-team)**:
    - Format: "[Division]-[Product Area]-Team"
    - Examples: "HK-Donor-Management-Team", "Oslo-Volunteer-Portal-Team"
 
@@ -208,7 +214,7 @@ Some special scenarios require specific handling in the provisioning process:
 
 3. **Manual Overrides**:
    - Process for handling exceptions
-   - Repository Admins can make manual team assignments
+   - [Repository Admins](./01-github-governance-roles.md#repository-admin) can make manual team assignments
    - Tracking system for manual assignments
 
 ## User Lifecycle Management
@@ -230,18 +236,27 @@ The provisioning system handles the complete employee lifecycle:
    - Automatic removal from teams
    - Contributions remain attributed to the user account
 
-## Provisioning External Users
+## Provisioning Outside Collaborators
 
-External users (pro-bono contributors, volunteers, partners) follow a different process:
+[Outside Collaborators](./01-github-governance-roles.md#outside-collaborator) (pro-bono contributors, volunteers, partners) follow a different process:
 
 1. **Manual Invitation**:
    - Not provisioned through HR/Okta flow
-   - Added as Outside Collaborators to specific repositories
-   - Managed by Repository Admins or Project Leads
+   - Added as [Outside Collaborators](./01-github-governance-roles.md#outside-collaborator) to specific repositories
+   - Managed by [Repository Admins](./01-github-governance-roles.md#repository-admin) or [Project Owners](./01-github-governance-roles.md#project-owner)
 
 2. **Authentication**:
    - Use personal GitHub accounts
    - Not subject to SSO requirements
    - Authenticate directly with GitHub
 
-This separate flow for external users ensures security while maintaining flexibility for collaboration with contributors outside the organization.
+This separate flow for [Outside Collaborators](./01-github-governance-roles.md#outside-collaborator) ensures security while maintaining flexibility for collaboration with contributors outside the organization.
+
+## Related Documents
+
+For more information on related topics, please refer to:
+
+- [01-github-governance-roles.md](./01-github-governance-roles.md) - Detailed roles and team type definitions
+- [02-github-internal-external.md](./02-github-internal-external.md) - Internal and outside collaborator user types
+- [04-github-repository-governance.md](./04-github-repository-governance.md) - Repository access structure
+- [06-github-servicenow.md](./06-github-servicenow.md) - ServiceNow integration for provisioning requests
