@@ -86,9 +86,6 @@ All GitHub requests go through ServiceNow with standardized workflows:
 
 ## Document Summaries
 
-### [00-norwegianredcross-github-manual.md](./00-norwegianredcross-github-manual.md)
-**Title:** Norwegian Red Cross GitHub Governance Manual
-
 Comprehensive compilation of all GitHub governance documentation in a single manual format. Includes all sections from the individual documents organized into chapters for easier navigation and printing.
 
 ### [01-github-governance-roles.md](./01-github-governance-roles.md)
@@ -140,6 +137,11 @@ Sets requirements for repository documentation, including README.md, CONTRIBUTIN
 **Title:** GitHub Best Practices Analysis
 
 Analyzes how our governance framework aligns with industry best practices, highlighting areas of excellence and potential enhancements to our GitHub management approach.
+
+### [00-norwegianredcross-github-manual.md](./00-norwegianredcross-github-manual.md)
+**Title:** Norwegian Red Cross GitHub Governance Manual
+
+A comprehensive manual that includes all sections from the individual documents organized into chapters for easier navigation and printing.
 
 ## Supporting Resources
 
