@@ -176,3 +176,4 @@ This governance framework is maintained by the [Repository Admin](./01-github-go
 | 2.5 | 2023-05-20 | Added team types definitions with direct links to all roles |
 | 3.0 | 2023-05-20 | Restructured README with clearer guidance and audience-specific sections |
 | 3.1 | 2023-05-20 | Added GitHub Best Practices Analysis document |
+| 3.2 | 2023-05-20 | Added comprehensive governance manual document (00) |
