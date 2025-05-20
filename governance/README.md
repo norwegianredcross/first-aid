@@ -30,6 +30,9 @@ Familiarize yourself with documentation standards (09), security standards (08),
 
 ### Documents by Topic
 
+#### Complete Manual
+- [00-norwegianredcross-github-manual.md](./00-norwegianredcross-github-manual.md) - Comprehensive GitHub Governance Manual
+
 #### Organization and Roles
 - [01-github-governance-roles.md](./01-github-governance-roles.md) - All roles and responsibilities
 - [02-github-internal-external.md](./02-github-internal-external.md) - Internal vs external user management
@@ -82,6 +85,11 @@ All GitHub requests go through ServiceNow with standardized workflows:
 3. Repository conversion requests
 
 ## Document Summaries
+
+### [00-norwegianredcross-github-manual.md](./00-norwegianredcross-github-manual.md)
+**Title:** Norwegian Red Cross GitHub Governance Manual
+
+Comprehensive compilation of all GitHub governance documentation in a single manual format. Includes all sections from the individual documents organized into chapters for easier navigation and printing.
 
 ### [01-github-governance-roles.md](./01-github-governance-roles.md)
 **Title:** GitHub Governance Roles
