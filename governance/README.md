@@ -1,89 +1,159 @@
-# GitHub Governance Documentation
+# GitHub Governance Framework
 
-This directory contains governance documentation for managing the Norwegian Red Cross GitHub organization. The documents here define processes, roles, naming conventions, and access models to ensure secure, consistent, and auditable management of repositories and users.
+## Introduction
 
-## Reading Order
+This repository contains the official governance documentation for the Norwegian Red Cross GitHub organization. These documents establish a comprehensive framework that defines how GitHub is managed, secured, and used within our organization.
 
-For best understanding, please read the documents in the following order:
+The goal of this governance framework is to:
 
-1. **Roles and Responsibilities** - [01-github-governance-roles.md](./01-github-governance-roles.md)
-2. **User Types** - [02-github-internal-external.md](./02-github-internal-external.md)
-3. **User Provisioning** - [03-github-provisioning.md](./03-github-provisioning.md)
-4. **Repository Governance** - [04-github-repository-governance.md](./04-github-repository-governance.md)
-5. **Repository Naming** - [05-github-repository-naming.md](./05-github-repository-naming.md)
-6. **ServiceNow Integration** - [06-github-servicenow.md](./06-github-servicenow.md)
-7. **Platform Selection** - [07-platform-selection-guidelines.md](./07-platform-selection-guidelines.md)
-8. **Security Standards** - [08-github-security-standards.md](./08-github-security-standards.md)
-9. **Documentation Standards** - [09-github-documentation-standards.md](./09-github-documentation-standards.md)
+- Provide clear roles and responsibilities for GitHub management
+- Establish consistent naming and organization standards
+- Define secure workflows and approval processes
+- Enable effective collaboration across teams and with external partners
+- Ensure proper documentation of all repositories
 
+## How to Use This Documentation
 
-## Glossary of Terms
+### For Different Audiences
 
-| Term | Definition | Primary Document |
-|------|------------|------------------|
-| [Organization Owner](./01-github-governance-roles.md#organization-owner) | Individual with highest level of permissions for GitHub organization | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Repository Admin](./01-github-governance-roles.md#repository-admin) | Trusted individual responsible for repository governance | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Team Admin](./01-github-governance-roles.md#team-admin) | Individual responsible for managing GitHub team structures | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Project Owner](./01-github-governance-roles.md#project-owner) | Person who owns and is responsible for a repository or project | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Team Maintainer](./01-github-governance-roles.md#team-maintainer) | Person who can manage a team's membership and settings | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Team Member](./01-github-governance-roles.md#team-member) | Regular contributor to a repository or project | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Outside Collaborator](./01-github-governance-roles.md#outside-collaborator) | External contributor (non-redcross.no) with repository-specific access | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Financial Approver](./01-github-governance-roles.md#financial-approver-cost-center-manager) | Manager responsible for approving financial aspects | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Internal User](./01-github-governance-roles.md#internal-user) | Employee or consultant with a redcross.no account | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Division Team](./01-github-governance-roles.md#division-team) | Level 1 team providing Read access to division members | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Department Team](./01-github-governance-roles.md#department-team) | Level 2 team providing Read access to department members | [01-github-governance-roles.md](./01-github-governance-roles.md) |
-| [Project Team](./01-github-governance-roles.md#project-team) | Team providing Write/Maintain access to repository contributors | [01-github-governance-roles.md](./01-github-governance-roles.md) |
+#### GitHub Administrators
+Start with the roles document (01) to understand your responsibilities, then review all documents with special attention to repository governance (04), security standards (08), and ServiceNow integration (06).
+
+#### Project Owners
+Focus on repository governance (04), repository naming (05), security standards (08), documentation standards (09), and platform selection (07) to understand your responsibilities and requirements.
+
+#### Team Maintainers
+Review roles (01), user provisioning (03), and repository governance (04) to understand how to manage teams and access effectively.
+
+#### Developers
+Familiarize yourself with documentation standards (09), security standards (08), and repository naming (05) to ensure your contributions follow organizational practices.
+
+### Documents by Topic
+
+#### Organization and Roles
+- [01-github-governance-roles.md](./01-github-governance-roles.md) - All roles and responsibilities
+- [02-github-internal-external.md](./02-github-internal-external.md) - Internal vs external user management
+
+#### Access and Provisioning
+- [03-github-provisioning.md](./03-github-provisioning.md) - How users get access to GitHub
+- [06-github-servicenow.md](./06-github-servicenow.md) - Request and approval workflows
+
+#### Repository Management
+- [04-github-repository-governance.md](./04-github-repository-governance.md) - Repository administration and permissions
+- [05-github-repository-naming.md](./05-github-repository-naming.md) - Naming convention requirements
+
+#### Security and Standards
+- [07-platform-selection-guidelines.md](./07-platform-selection-guidelines.md) - GitHub vs Azure DevOps decisions
+- [08-github-security-standards.md](./08-github-security-standards.md) - Security requirements
+- [09-github-documentation-standards.md](./09-github-documentation-standards.md) - Documentation requirements
+- [10-github-best-practices.md](./10-github-best-practices.md) - Analysis of industry best practices alignment
+
+### Quick Reference Diagrams
+
+For visual learners, each document contains diagrams that illustrate key concepts. You can find all diagram examples in the [examples/mermaid.md](./examples/mermaid.md) file.
+
+## Key Concepts
+
+### Team Structure
+
+The Norwegian Red Cross uses a hierarchical team structure in GitHub:
+
+1. **[Division Teams](./01-github-governance-roles.md#division-team)** (Level 1) - Provide read access across divisions
+2. **[Department Teams](./01-github-governance-roles.md#department-team)** (Level 2) - Provide read access to department members
+3. **[Role-based Teams](./01-github-governance-roles.md#role-based-team)** - Provide read access based on job functions
+4. **[Project Teams](./01-github-governance-roles.md#project-team)** - Provide write access for active contributors
+
+### Governance Roles
+
+The governance structure relies on clearly defined roles:
+
+- **[Organization Owners](./01-github-governance-roles.md#organization-owner)** - Highest level of permissions
+- **[Repository Admins](./01-github-governance-roles.md#repository-admin)** - Manage repository creation and settings
+- **[Team Admins](./01-github-governance-roles.md#team-admin)** - Manage team structures
+- **[Project Owners](./01-github-governance-roles.md#project-owner)** - Responsible for specific repositories
+- **[Team Maintainers](./01-github-governance-roles.md#team-maintainer)** - Manage team memberships
+
+### Request Workflows
+
+All GitHub requests go through ServiceNow with standardized workflows:
+
+1. Repository creation requests
+2. GitHub access requests
+3. Repository conversion requests
 
 ## Document Summaries
 
 ### [01-github-governance-roles.md](./01-github-governance-roles.md)
 **Title:** GitHub Governance Roles
 
-Defines all roles involved in GitHub governance, including Organization Owner, Repository Admin, Team Admin, Project Owner, Team Maintainer, Team Member, Outside Collaborator, and Financial Approver. It explains responsibilities, permission levels, and the assignment matrix for each role.
+Defines all roles involved in GitHub governance, with clear responsibilities and permission levels for each role. Includes role relationship diagrams, assignment matrices, and team types with their purposes and membership criteria.
 
 ### [02-github-internal-external.md](./02-github-internal-external.md)
 **Title:** Internal and External Users in GitHub
 
-Describes the distinction between internal users (employees/consultants) and Outside Collaborators (external contributors), their access models, team structures, and collaboration patterns. Details security, governance, and best practices for mixed teams.
+Explains the differences between internal employees/consultants and external collaborators, including access models, authentication methods, and best practices for collaboration with external partners.
 
 ### [03-github-provisioning.md](./03-github-provisioning.md)
 **Title:** GitHub User Provisioning
 
-Explains the automated provisioning process for internal users via HR systems and Okta, including team assignment, lifecycle management, and SCIM integration. Also covers manual processes for onboarding Outside Collaborators and handling special cases.
+Details the automated user provisioning flow from HR systems through Okta to GitHub, including team assignment based on organizational structure, lifecycle management, and special case handling.
 
 ### [04-github-repository-governance.md](./04-github-repository-governance.md)
 **Title:** Repository Governance in GitHub
 
-Outlines the structure for repository administration, access assignment based on a 2-level organizational hierarchy, and the process for repository creation and team assignment. Includes best practices for team permissions and cross-divisional collaboration.
+Establishes the repository administration model, access control based on organizational structure, and approval flows for repository creation and management.
 
 ### [05-github-repository-naming.md](./05-github-repository-naming.md)
 **Title:** GitHub Repository Naming Conventions
 
-Specifies the standard naming conventions for repositories, including required patterns, component names, abbreviations, and special prefixes. Provides examples and guidelines for both new and legacy repositories, as well as monorepo structures.
+Provides standardized naming patterns for repositories with examples, component naming guidelines, and special cases for different repository types.
 
 ### [06-github-servicenow.md](./06-github-servicenow.md)
 **Title:** GitHub ServiceNow Integration
 
-Describes how ServiceNow is used as the single point of entry for all GitHub repository and access requests. It details the request and approval workflows for both repository creation and user access, including form fields, approval steps, and integration with organizational roles and HR systems.
+Documents how ServiceNow serves as the self-service portal for all GitHub-related requests, with detailed workflows for repository creation, access requests, and repository conversions.
 
 ### [07-platform-selection-guidelines.md](./07-platform-selection-guidelines.md)
 **Title:** Platform Selection Guidelines
 
-Provides guidance on when to use GitHub versus Azure DevOps for different project types and defines criteria for making repositories public. Includes decision frameworks, approval processes, and migration considerations to ensure consistent platform selection across the organization.
+Guides decision-making between GitHub and Azure DevOps, with criteria for when to use each platform and requirements for making repositories public.
 
 ### [08-github-security-standards.md](./08-github-security-standards.md)
 **Title:** GitHub Security Standards
 
-Defines security requirements and best practices for GitHub usage, including branch protection rules, secret management, dependency scanning, and security incident response procedures. Ensures consistent security controls across all repositories and user types.
+Establishes security requirements for all repositories, including branch protection, secret scanning, dependency management, and security incident response procedures.
 
 ### [09-github-documentation-standards.md](./09-github-documentation-standards.md)
 **Title:** GitHub Documentation Standards
 
-Outlines the required documentation files and standards for all repositories, including README.md, CONTRIBUTING.md, CODEOWNERS, and LICENSE files. Provides templates, formatting guidelines, and best practices for maintaining clear and consistent documentation across the organization.
+Sets requirements for repository documentation, including README.md, CONTRIBUTING.md, and CODEOWNERS files, with templates and formatting standards.
 
----
+### [10-github-best-practices.md](./10-github-best-practices.md)
+**Title:** GitHub Best Practices Analysis
 
-For questions or suggestions regarding governance, please contact the [Repository Admin](./01-github-governance-roles.md#repository-admin) team or [Organization Owners](./01-github-governance-roles.md#organization-owner) as defined in the [GitHub Governance Roles](./01-github-governance-roles.md) document.
+Analyzes how our governance framework aligns with industry best practices, highlighting areas of excellence and potential enhancements to our GitHub management approach.
+
+## Supporting Resources
+
+### Templates
+
+The [templates/](./templates/) directory contains standardized templates for:
+- [README.md](./templates/README.md) - Repository readme file
+- [CONTRIBUTING.md](./templates/CONTRIBUTING.md) - Contribution guidelines
+- [CODEOWNERS](./templates/CODEOWNERS) - Code ownership definition
+- [LICENSE files](./templates/LICENSE-internal.md) - Internal and open source license options
+- [SECURITY.md](./templates/SECURITY.md) - Security policy and vulnerability reporting
+- Issue and pull request templates
+
+### Examples
+
+The [examples/](./examples/) directory contains:
+- [Markdown formatting guidelines](./examples/markdown.md) - How to write consistent documentation
+- [Mermaid diagram examples](./examples/mermaid.md) - How to create clear diagrams
+
+## Governance Maintenance
+
+This governance framework is maintained by the [Repository Admin](./01-github-governance-roles.md#repository-admin) team with oversight from [Organization Owners](./01-github-governance-roles.md#organization-owner). For questions, suggestions, or to report issues with the governance documentation, please contact them directly.
 
 ## Version History
 
@@ -96,3 +166,5 @@ For questions or suggestions regarding governance, please contact the [Repositor
 | 2.3 | 2023-05-20 | Added documentation standards and section-specific role links |
 | 2.4 | 2023-05-20 | Consolidated External User into Outside Collaborator for clarity |
 | 2.5 | 2023-05-20 | Added team types definitions with direct links to all roles |
+| 3.0 | 2023-05-20 | Restructured README with clearer guidance and audience-specific sections |
+| 3.1 | 2023-05-20 | Added GitHub Best Practices Analysis document |
